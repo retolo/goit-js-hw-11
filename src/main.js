@@ -1,5 +1,6 @@
 import getImagesByQuery from "./js/pixabay";
 import createGallery from "./js/render-functions";
+import { clearGallery, showLoader, hideLoader } from "./js/render-functions";
 
 import iziToast from "izitoast";
 
@@ -32,11 +33,19 @@ function formHandler(event){
 
     }else{
         
-        
+        showLoader();
         getImagesByQuery(inputForm.value.trim())
         .then(value =>{
+            
+            
             createGallery(value);
+        
+            
         })
+        .finally(() =>{
+            hideLoader();
+        })
+        
             
 
         
@@ -48,6 +57,7 @@ function formHandler(event){
 
     
     form.reset();
+    clearGallery();
 }
 
 
