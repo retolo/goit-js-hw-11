@@ -1,4 +1,4 @@
-import getImagesByQuery from "./js/pixabay";
+import getImagesByQuery from "./js/pixabay-api";
 import createGallery from "./js/render-functions";
 import { clearGallery, showLoader, hideLoader } from "./js/render-functions";
 
