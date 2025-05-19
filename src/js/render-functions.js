@@ -5,7 +5,12 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 const ul = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
-
+const lightBox = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionsData: 'alt',
+    captionDelay: 250,
+    captionPosition: 'bottom',
+});
 function createGallery(images){
     
     let markUp = '';
@@ -44,12 +49,7 @@ function createGallery(images){
 
     }
     ul.insertAdjacentHTML('afterbegin', markUp);
-    const lightBox = new SimpleLightbox('.gallery a', {
-        captions: true,
-        captionsData: 'alt',
-        captionDelay: 250,
-        captionPosition: 'bottom',
-    });
+    lightBox.refresh();
 }
 
 
